@@ -19,7 +19,7 @@ class Controller {
      * @param {Request} req 
      * @param {Response} res 
      */
-    static async findkey(req, res) {
+    static async findKey(req, res) {
         const {id} = req.body;
         await Models.findKey(id)
             .then(result => res.json(result))
