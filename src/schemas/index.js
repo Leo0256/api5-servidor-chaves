@@ -14,10 +14,10 @@ const chaves = conn.define(
             allowNull: false
         }
     },
-    { freezeTableName: true, hooks: true }
+    { freezeTableName: true, hooks: true, paranoid: true }
 );
 
 const init = async () => await chaves.sync();
 init();
 
-module.exports = { chave: chaves }
+module.exports = { chaves }
