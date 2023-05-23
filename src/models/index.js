@@ -63,20 +63,8 @@ class Models {
             return await this.findKey(oldId);
         }
 
-        const key = this.#genKey();
-
-        await chaves.update(
-            {
-                id: newId,
-                chave: key
-            },
-            { where: { id: oldId } }
-        )
-        .then(async result => {
-            if(!result[0]) throw 'Chave não atualizada';
-
-            return this.findKey(newId);
-        });
+        await this.deleteKey(oldId);
+        return await this.saveKey(newId);
     }
 
 }
