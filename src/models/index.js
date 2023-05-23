@@ -9,7 +9,8 @@ class Models {
      */
 
     static #genKey() {
-        return SHA256(Math.random()).toString();
+        const salt = 10 ** 10;
+        return SHA256(Math.floor(Math.random() * salt).toString()).toString();
     }
 
     /**
