@@ -7,7 +7,8 @@ class Models {
      * Gera uma nova chave de criptografia.
      * @returns {string}
      */
-    static genKey() {
+
+    static #genKey() {
         return SHA256(Math.random()).toString();
     }
 
@@ -17,7 +18,7 @@ class Models {
      * @returns 
      */
     static async saveKey(id) {
-        const key = this.genKey();
+        const key = this.#genKey();
 
         return await chaves.create({
             id,
@@ -62,7 +63,7 @@ class Models {
             return await this.findKey(oldId);
         }
 
-        const key = this.genKey();
+        const key = this.#genKey();
 
         await chaves.update(
             {
