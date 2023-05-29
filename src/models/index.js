@@ -21,6 +21,9 @@ class Models {
     static async saveKey(id) {
         const key = this.#genKey();
 
+        const find = await this.findKey(id)
+        if(find) return find;
+
         return await chaves.create({
             id,
             chave: key
