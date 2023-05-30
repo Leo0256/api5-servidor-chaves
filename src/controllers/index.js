@@ -20,7 +20,8 @@ class Controller {
      * @param {Response} res 
      */
     static async findKey(req, res) {
-        const {id} = req.body;
+        const {id} = req.params;
+
         await Models.findKey(id)
             .then(result => res.json(result))
     }
@@ -41,7 +42,7 @@ class Controller {
      * @param {Response} res 
      */
     static async deleteKey(req, res) {
-        const {id} = req.body;
+        const {id} = req.params;
 
         await Models.deleteKey(id)
             .then(result => res.json(result))
