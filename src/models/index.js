@@ -25,7 +25,7 @@ class Models {
         if(find) return find;
 
         return await chaves.create({
-            id,
+            chave_id: id,
             chave: key
         });
     }
@@ -36,7 +36,7 @@ class Models {
      * @returns 
      */
     static async findKey(id) {
-        return await chaves.findByPk(id);
+        return await chaves.findOne({ where: { chave_id: id }});
     }
 
     /**
@@ -52,7 +52,7 @@ class Models {
      * @param {string} id 
      */
     static async deleteKey(id) {
-        return await chaves.destroy({ where: { id } });
+        return await chaves.destroy({ where: { chave_id: id } });
     }
 
     /**

@@ -5,8 +5,12 @@ const chaves = conn.define(
     'chaves',
     {
         id: {
-            type: DataTypes.STRING(70),
+            type: DataTypes.INTEGER,
             primaryKey: true,
+            autoIncrement: true
+        },
+        chave_id: {
+            type: DataTypes.STRING(70),
             allowNull: false
         },
         chave: {
