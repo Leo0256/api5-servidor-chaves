@@ -18,7 +18,7 @@ const chaves = conn.define(
             allowNull: false
         }
     },
-    { freezeTableName: true, hooks: true, paranoid: true }
+    { freezeTableName: true, hooks: true, paranoid: false }
 );
 
 const init = async () => await chaves.sync();
